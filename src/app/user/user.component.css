@@ -1,0 +1,49 @@
+div
+{
+    font-size: 20pt;
+    color:teal;
+    text-align: center;
+}
+
+p
+{
+    font-size: medium;
+    color: slategray;
+}
+
+.button
+{
+    background-color:steelblue;
+    font-size: 13pt;
+    color:aliceblue;
+    padding: 1px 1px;
+    width: 140px;
+    height: 32px;
+    border-radius: 1px;
+}
+
+.button:hover
+{
+    background-color:cadetblue;
+}
+
+.button2
+{
+    background-color:slategray;
+    font-size: 13pt;
+    color:aliceblue;
+    padding: 1px 1px;
+    height: 32px;
+    width: 140px;
+    border-radius: 1px;
+}
+
+.button2:hover
+{
+    background-color:cornflowerblue;
+}
+
+.line
+{
+    width: 140px;
+}

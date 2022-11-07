@@ -1,0 +1,14 @@
+<div>
+    Create Account
+    <form #userRef="ngForm" (ngSubmit)="createAccount(userRef.value)"> 
+        <input type="text" name="firstName" placeholder="First Name" class="inputbox" ngModel required><br>
+        <input type="text" name="lastName" placeholder="Last Name" class="inputbox" ngModel required><br>
+        <input type="text" name="phoneNumber" placeholder="Phone Number" class="inputbox" ngModel required><br>
+        <input type="text" name="emailAddress" placeholder="Email Address" class="inputBox" ngModel required> <br/>
+        <input type="password" name="password" placeholder="Password" class="inputBox" ngModel required> <br><br>
+        <input type="submit" value="Create Account" class="button"><br>
+    </form>
+
+    <span style="color:red">{{storeMessage}}</span>
+    
+</div>
