@@ -1,18 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CheckingAccount } from '../user-home/checking-account';
+import { SavingsAccount } from '../user-home/savings-account';
+import { User } from '../user/user';
 import { UserService } from '../user/user.service';
-import { CheckingAccount } from './checking-account';
-import { SavingsAccount } from './savings-account';
 
 @Component({
-  selector: 'app-user-home',
-  templateUrl: './user-home.component.html',
-  styleUrls: ['./user-home.component.css']
+  selector: 'app-user-profile',
+  templateUrl: './user-profile.component.html',
+  styleUrls: ['./user-profile.component.css']
 })
-export class UserHomeComponent implements OnInit {
+export class UserProfileComponent implements OnInit {
 
-  constructor(private service: UserService) { }
+  constructor(public router:Router, private service: UserService) { }
+
   loginId:string = "";
-  checkingAccount:CheckingAccount = new CheckingAccount(0,0);
+  loggedInUser:User = new User("","","","","");
+  checkingAccount:CheckingAccount = new CheckingAccount(0, 0);
   savingsAccount:SavingsAccount = new SavingsAccount(0);
 
   ngOnInit(): void 
@@ -21,6 +25,15 @@ export class UserHomeComponent implements OnInit {
     if(obj!=null)
     {
       this.loginId = obj;
+
+      console.log("Getting id : " + this.loginId);
+
+      this.service.getFullUserDetails(this.loginId).subscribe(result=>
+        {
+          this.loggedInUser = result;
+        },
+        error=>console.log(error),
+        ()=>console.log("All details loaded"));
     }
 
     this.service.getCheckingAccountInfo(this.loginId).subscribe(result=>
@@ -50,6 +63,6 @@ export class UserHomeComponent implements OnInit {
         },
         error=> console.log(error),
         ()=> console.log("Data load finished"))
-      });
+      }); 
   }
 }

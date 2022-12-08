@@ -8,7 +8,6 @@ export class SavingsAccount
     constructor
     (
         inBalance:number,
-        inCheckNumber:number
     )
     {
         this.balance = inBalance;

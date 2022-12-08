@@ -1,0 +1,45 @@
+<div class="menuContainer">
+    <div class="menu">
+        <ul>
+            <li><a href="user-home.component.html">Home</a></li>
+            <li><a href="user-home.component.html">Accounts</a></li>
+            <li><a href="user-home.component.html">Transfer</a></li>
+            <li><a href="user-home.component.html">Request</a></li>
+            <li class="right"><a href="/userProfile">My Account</a></li>
+        </ul>
+    </div>
+</div>
+<div class="container">
+    <div class="title">
+        <h2>My Profile</h2>
+        <hr>
+        <div class="fieldLabel">First Name</div>
+        <img class="userImage" src="assets/Images/toppng.png" alt="user-icon">
+        <input type="text" class="textbox" value={{loggedInUser.firstName}} readonly>
+        
+        <div class="fieldLabel">Last Name</div>
+        <img class="userImage" src="assets/Images/toppng.png" alt="user-icon">
+        <input type="text" class="textbox" value={{loggedInUser.lastName}} readonly>
+
+        <div class="fieldLabel">Phone Number</div>
+        <img class="userImage" src="assets/Images/phone-icon.png" alt="phone-icon">
+        <input type="text" class="textbox" value={{loggedInUser.phoneNumber}} readonly>
+
+        <div class="fieldLabel">Email Address/User Name</div>
+        <img class="userImage" src="assets/Images/email-icon.png" alt="phone-icon">
+        <input type="text" class="textbox" value={{loggedInUser.emailAddress}} readonly>
+    </div>
+    <div class="accountInformation">
+        <h2>My Account Information</h2>
+        <hr>
+        <div class="fieldLabel">Checking Account Number</div>
+        <img class="userImage" src="assets/Images/bank-icon.png" alt="bank-icon">
+        <input type="text" class="textbox" value={{checkingAccount.id}} readonly>
+
+        <div class="fieldLabel">Savings Account Number</div>
+        <img class="userImage" src="assets/Images/bank-icon.png" alt="bank-icon">
+        <input type="text" class="textbox" value={{savingsAccount.id}} readonly>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

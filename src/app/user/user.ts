@@ -21,6 +21,7 @@ export class User
     public set setFirstName(newFirstName:string)
     {
         this.firstName = newFirstName;
+        console.log("First name being set to : " + this.firstName);
     }
 
     public set setLastName(newLastName:string)
@@ -36,6 +37,7 @@ export class User
     public set setEmailAddress(newEmailAddress:string)
     {
         this.emailAddress = newEmailAddress;
+        console.log("Email address being set to : " + this.emailAddress);
     }
 
     public set setPassword(newPassword:string)

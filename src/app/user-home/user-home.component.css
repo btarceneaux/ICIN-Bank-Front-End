@@ -196,3 +196,10 @@ a
     height: 75%;
     padding-bottom: 50px;
 }
+
+.right
+{
+    float: right;
+    text-align: right;
+}
+

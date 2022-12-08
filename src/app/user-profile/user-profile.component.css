@@ -1,0 +1,95 @@
+.menuContainer
+{
+    width: 75%;
+    height: 75%;
+    margin: 0 auto;
+    padding-bottom: 5px;
+    background-color:aliceblue;
+}
+
+.container
+{
+    width: 75%;
+    height: 75%;
+    margin: 0 auto;
+    /* display:flex;
+    flex-flow: row wrap;
+    justify-content: space-between; */
+    row-gap: 10px;
+    padding-top: 50px;
+}
+
+ul 
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li
+{
+    float: left;
+}
+
+a
+{
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: cornflowerblue;
+}
+
+.menu
+{
+    width: 75%;
+    height: 75%;
+    padding-bottom: 50px;
+}
+
+.right
+{
+    float: right;
+    text-align: right;
+}
+
+.profileInformation
+{
+    columns: 2;
+}
+
+.title
+{
+    color:steelblue;
+    float: left;
+    width: 45%;
+}
+
+.accountInformation
+{
+    color:steelblue;
+    float: right;
+    width: 45%;
+}
+
+.textbox
+{
+    float: right;
+    width: 90%;
+    border: 1.5px solid;
+    border-color:rgb(239, 239, 239);
+    padding-bottom: 5px;
+    color:steelblue;
+    pointer-events: none;
+}
+
+.userImage
+{
+    float: left;
+    width: 6%;
+    height: 6%;
+}
+
+.fieldLabel
+{
+    padding: 3px;
+}

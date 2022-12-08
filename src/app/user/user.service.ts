@@ -12,24 +12,13 @@ import { SavingsAccount } from '../user-home/savings-account';
 export class UserService 
 {
   checkingAccount:CheckingAccount = new CheckingAccount(0,0);
-  savingsAccount:SavingsAccount = new SavingsAccount(0,0);
-  loggedInUser:User = new User("", "", "", "", "");
+  savingsAccount:SavingsAccount = new SavingsAccount(0);
+  // loggedInUser:User = new User("", "", "", "", "");
   response:any;
 
 
   // We have to do DI for HTTP Client.
   constructor(public http:HttpClient) { }
-
-
-  setCheckingAccount(myCheckingAccount:CheckingAccount)
-  {
-    this.checkingAccount = myCheckingAccount;
-  }
-
-  setSavingsAccount(mySavingsAccount:SavingsAccount)
-  {
-    this.savingsAccount = mySavingsAccount;
-  }
 
   getAllUsers()
   {
@@ -54,19 +43,22 @@ export class UserService
     return this.http.post(api, myUser, {responseType:'text'});
   }
 
-  getCheckingAccountInfo(myUser:User):Observable<CheckingAccount>
+  getCheckingAccountInfo(id:string):Observable<CheckingAccount>
   {
-    this.loggedInUser.setEmailAddress = myUser.emailAddress;
-    this.loggedInUser.setPassword = myUser.password;
-    this.loggedInUser.setId = myUser.id!;
-    let api:string = "http://localhost:8081/getCheckingAccountInfo/" + myUser.id;
+    let api:string = "http://localhost:8081/getCheckingAccountInfo/" + id;
     return this.http.get<CheckingAccount>(api,{responseType:'json'});
   }
   
-  getSavingsAccountInfo(myUser:User):Observable<SavingsAccount>
+  getSavingsAccountInfo(id:string):Observable<SavingsAccount>
   {
-    let api:string = "http://localhost:8081/getSavingsAccountInfo/" + myUser.id;
+    let api:string = "http://localhost:8081/getSavingsAccountInfo/" + id;
     return this.http.get<SavingsAccount>(api,{responseType:'json'});
   }
 
+  getFullUserDetails(id:string):Observable<User>
+  {
+    let api:string = "http://localhost:8081/getUser/" + id;
+    console.log("API endpoint is : " +  api);
+    return this.http.get<User>(api, {responseType:'json'});
+  }
 }
