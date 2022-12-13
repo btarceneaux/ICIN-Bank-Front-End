@@ -163,6 +163,12 @@
     border-radius: 2px;
 }
 
+.withdrawal .withdrawalDetails a
+{
+    text-decoration: none;
+    color: steelblue;
+}
+
 p
 {
     font-size: medium;

@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { DepositComponent } from './deposit/deposit.component';
+import { WithdrawalComponent } from './withdrawal/withdrawal.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DepositComponent } from './deposit/deposit.component';
     LoginComponent,
     UserHomeComponent,
     UserProfileComponent,
-    DepositComponent
+    DepositComponent,
+    WithdrawalComponent
   ],
   imports: [
     BrowserModule,

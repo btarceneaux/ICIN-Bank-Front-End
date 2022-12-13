@@ -27,7 +27,6 @@ export class UserService
     ()=>console.log("completed"))
   }
 
-  //For some reason it is loosing the id 
   depositIntoChecking(myCheckingAccount:CheckingAccount, accountId:number):Observable<string>
   {
     console.log("Checking the id that is coming over");
@@ -41,9 +40,22 @@ export class UserService
     return this.http.post(api, myCheckingAccount, {responseType:'text'});
   }
 
+  withdrawFromChecking(myCheckingAccount:CheckingAccount, accountId:number):Observable<string>
+  {
+    let api:string = "http://localhost:8081/checkingWithdrawal";
+
+    return this.http.post(api, myCheckingAccount, {responseType:'text'});
+  }
+
   depositIntoSavings(mySavingsAccount: SavingsAccount, accountId: number) 
   {
     let api:string = "http://localhost:8081/savingsDeposit";
+    return this.http.post(api, mySavingsAccount, {responseType:'text'});
+  }
+
+  withdrawFromSavings(mySavingsAccount: SavingsAccount, accountId: number) 
+  {
+    let api:string = "http://localhost:8081/savingsWithdrawal";
     return this.http.post(api, mySavingsAccount, {responseType:'text'});
   }
   
