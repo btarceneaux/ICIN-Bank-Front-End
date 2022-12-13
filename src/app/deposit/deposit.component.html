@@ -1,0 +1,58 @@
+<div class="menuContainer">
+    <div class="menu">
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/home">Accounts</a></li>
+            <li><a href="/home">Transfer</a></li>
+            <li><a href="/home">Request</a></li>
+            <li class="right"><a href="/userProfile">My Account</a></li>
+        </ul>
+    </div>
+</div>
+<div class="container">
+    <div class="title">
+        <h2>Card Information</h2>
+        <hr>
+        <div class="error">
+            {{msg}}
+        </div>
+        <form [formGroup]="depositRef" (ngSubmit)="depositFunds()">
+            <div class="form-group">
+                <label for="name">Name</label><br>
+                <input required type="text" formControlName="name" class="form-control">
+            </div>
+            <pre></pre>
+            <div class="form-group">
+                <label for="cardNumber">Card Number</label><br>
+                <input required type="number" formControlName="cardNumber" class="form-control">
+            </div>
+            <pre></pre>
+            <div class="form-group">
+                <label for="expirationDate">Expiration Date</label><br>
+                <input required type="text" formControlName="expirationDate" class="form-control">
+            </div>
+            <pre></pre>
+            <div class="form-group">
+                <label for="cvvCode">CVV Code</label><br>
+                <input required type="text" formControlName="cvvCode" class="form-control">
+            </div>
+            <pre></pre>
+            <div class="form-group">
+                <label for="amount">Amount In Dollars</label><br>
+                <input required type="text" formControlName="amount" class="form-control">
+            </div>
+            <pre></pre>
+            <div class="form-group">
+                <input required type="radio" formControlName="accountSelect" value="checking" class="form-control">
+                <label for="checking"> Checking</label>
+                <input required type="radio" formControlName="accountSelect" value="savings" class="form-control">
+                <label for="savings"> Savings</label>
+            </div>
+        <div>
+            <br><button type="submit">Deposit Funds</button>
+        </div>
+    </form>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

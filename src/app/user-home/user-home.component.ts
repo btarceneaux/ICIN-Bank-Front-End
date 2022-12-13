@@ -22,6 +22,10 @@ export class UserHomeComponent implements OnInit {
     {
       this.loginId = obj;
     }
+    else
+    {
+      console.log("ID is " + obj);
+    }
 
     this.service.getCheckingAccountInfo(this.loginId).subscribe(result=>
       {

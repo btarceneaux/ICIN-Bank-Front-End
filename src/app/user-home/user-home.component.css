@@ -19,6 +19,21 @@
     background-color:aliceblue;
 }
 
+.menuContainer .menu
+{
+    width: 75%;
+    height: 75%;
+    padding-bottom: 50px;
+}
+
+.menuContainer .menu a
+{
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: cornflowerblue;
+}
+
 .body
 {
     display: flex;
@@ -99,7 +114,7 @@
     padding-top: 10px;
 }
 
-.depositDetails
+.deposit .depositDetails
 {
     background-color:whitesmoke;
     width: 200px;
@@ -112,6 +127,12 @@
     padding-left: 10px;
     padding-top: 4px;
     border-radius: 2px;
+}
+
+.deposit .depositDetails a
+{
+    text-decoration: none;
+    color: steelblue;
 }
 
 .withdrawal
@@ -182,24 +203,10 @@ li
     float: left;
 }
 
-a
-{
-    display: block;
-    padding: 15px;
-    text-decoration: none;
-    color: cornflowerblue;
-}
 
-.menu
-{
-    width: 75%;
-    height: 75%;
-    padding-bottom: 50px;
-}
 
 .right
 {
     float: right;
     text-align: right;
 }
-

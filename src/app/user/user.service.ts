@@ -26,6 +26,26 @@ export class UserService
     error=>console.log(error), 
     ()=>console.log("completed"))
   }
+
+  //For some reason it is loosing the id 
+  depositIntoChecking(myCheckingAccount:CheckingAccount, accountId:number):Observable<string>
+  {
+    console.log("Checking the id that is coming over");
+    console.log(accountId.toString);
+
+    console.log("Service Checking Account Passed From Deposit Component! ")
+            console.log(myCheckingAccount);
+
+    let api:string = "http://localhost:8081/checkingDeposit";
+
+    return this.http.post(api, myCheckingAccount, {responseType:'text'});
+  }
+
+  depositIntoSavings(mySavingsAccount: SavingsAccount, accountId: number) 
+  {
+    let api:string = "http://localhost:8081/savingsDeposit";
+    return this.http.post(api, mySavingsAccount, {responseType:'text'});
+  }
   
   storeUser(user:User):Observable<string>
   {

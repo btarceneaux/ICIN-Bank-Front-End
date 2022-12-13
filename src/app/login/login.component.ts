@@ -13,7 +13,7 @@ import { UserService } from '../user/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public router:Router, private service: UserService) { }
+  constructor(private router:Router, private service: UserService) { }
   msg:string = "";
   checkingAccountMessage:any;
   loggedInUser:User = new User("","","","","");

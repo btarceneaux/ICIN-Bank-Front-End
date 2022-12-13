@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DepositComponent } from './deposit/deposit.component';
 import { LoginComponent } from './login/login.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
@@ -10,7 +11,8 @@ const routes: Routes =
   {path:"login", component:LoginComponent},
   {path:"createUser",component:UserComponent},
   {path:"home", component:UserHomeComponent},
-  {path:"userProfile", component:UserProfileComponent}
+  {path:"userProfile", component:UserProfileComponent},
+  {path:"deposit", component:DepositComponent}
 ];
 
 @NgModule({
