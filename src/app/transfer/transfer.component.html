@@ -1,0 +1,38 @@
+<div class="menuContainer">
+    <div class="menu">
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="user-home.component.html">Accounts</a></li>
+            <li><a href="user-home.component.html">Transfer</a></li>
+            <li><a href="user-home.component.html">Request</a></li>
+            <li class="right"><a href="/userProfile">My Account</a></li>
+        </ul>
+    </div>
+</div>
+<div class = container>
+    <div>
+        <form #transferRef="ngForm" (ngSubmit)="transferFunds(transferRef.value)">
+            <tr>
+                <th>Transfer From Checking To Savings</th>
+                <th>Transfer From Savings To Checking</th>
+                <th>Transfer From Checking To Zelle User</th>
+                <th>Transfer From Savings To Zelle User</th>
+                <th>Amount</th>
+            </tr>
+            <tr>
+                <td><input type="radio" id="checkingToSavings" name="selection" value="checkingToSavings" ngModel required></td>
+                <td><input type="radio" id="savingsToChecking" name="selection" value="savingsToChecking" ngModel required></td>
+                <td>
+                    <input type="radio" id="checkingToZelle" name="selection" value="checkingToZelle" ngModel required> &nbsp;
+                    <input type="text" id="emailAddress1" name="emailAddress1" placeholder="Email Address" ngModel required>
+                </td>
+                <td>
+                    <input type="radio" id="savingsToZelle" name="selection" value="savingsToZelle" ngModel required> &nbsp;
+                    <input type="text" id="emailAddress2" name="emailAddress2" placeholder="Email Address" ngModel required>
+                </td>
+                <td><input type="number" name="amount" ngModel required><br><br></td>
+            </tr><br><br>
+            <input type="submit" value="Transfer Funds" class="button2">
+        </form>
+        <span style="color:red">{{msg}}</span>
+    </div>

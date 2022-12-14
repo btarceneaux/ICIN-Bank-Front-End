@@ -13,6 +13,7 @@ import { DepositComponent } from './deposit/deposit.component';
 import { WithdrawalComponent } from './withdrawal/withdrawal.component';
 import { CheckingDetailsComponent } from './checking-details/checking-details.component';
 import { SavingsDetailsComponent } from './savings-details/savings-details.component';
+import { TransferComponent } from './transfer/transfer.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SavingsDetailsComponent } from './savings-details/savings-details.compo
     DepositComponent,
     WithdrawalComponent,
     CheckingDetailsComponent,
-    SavingsDetailsComponent
+    SavingsDetailsComponent,
+    TransferComponent
   ],
   imports: [
     BrowserModule,
