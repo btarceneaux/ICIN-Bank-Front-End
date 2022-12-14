@@ -1,10 +1,10 @@
+import { Transaction } from "./transaction";
+
 export class CheckingAccount
 {
     public balance:number;
     public checkNumber:number;
     public id?:number;
-    public transactions?: any[] = [];
-    
 
     constructor
     (

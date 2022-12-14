@@ -11,6 +11,8 @@ import { UserHomeComponent } from './user-home/user-home.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { DepositComponent } from './deposit/deposit.component';
 import { WithdrawalComponent } from './withdrawal/withdrawal.component';
+import { CheckingDetailsComponent } from './checking-details/checking-details.component';
+import { SavingsDetailsComponent } from './savings-details/savings-details.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { WithdrawalComponent } from './withdrawal/withdrawal.component';
     UserHomeComponent,
     UserProfileComponent,
     DepositComponent,
-    WithdrawalComponent
+    WithdrawalComponent,
+    CheckingDetailsComponent,
+    SavingsDetailsComponent
   ],
   imports: [
     BrowserModule,

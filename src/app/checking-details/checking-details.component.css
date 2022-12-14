@@ -41,22 +41,27 @@
     padding: 10 px;
 }
 
-.primaryBalance
+.container div tr td
 {
     color:steelblue;
-    background-color:skyblue;
+    /* background-color:skyblue; */
+    border: 2px solid aliceblue;
     border-radius: 3px;
-    width: 300px;
-    height: 75px;
-    text-align: left;
-    position:relative;
-    font-size: 20px;
-    padding-bottom: 2px;
-    padding-left: 10px;
-    padding-top: 10px;
+    width: 700px;
+    text-align: center;
 }
 
-.primaryBalanceDetails
+.container div tr th
+{
+    background-color:steelblue;
+    color: white;
+    border: 2px solid aliceblue;
+    border-radius: 3px;
+    width: 700px;
+    text-align: center;
+}
+
+/* .primaryBalanceDetails
 {
     background-color:whitesmoke;
     width: 300px;
@@ -69,7 +74,7 @@
     padding-left: 10px;
     padding-top: 4px;
     border-radius: 2px;
-}
+} */
 
 .savingsBalance
 {

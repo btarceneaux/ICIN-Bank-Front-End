@@ -20,6 +20,12 @@ export class UserService
   // We have to do DI for HTTP Client.
   constructor(public http:HttpClient) { }
 
+  getTransactionByAccountId(accountId:string):Observable<any[]>
+  {
+    let api = "http://localhost:8081/getTransactions/" + accountId;
+    return this.http.get<any[]>(api,{responseType:'json'});
+  }
+
   getAllUsers()
   {
     this.http.get("http://localhost:8081/register").subscribe(data=>console.log, 

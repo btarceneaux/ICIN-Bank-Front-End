@@ -1,0 +1,32 @@
+<div class="menuContainer">
+    <div class="menu">
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="user-home.component.html">Accounts</a></li>
+            <li><a href="user-home.component.html">Transfer</a></li>
+            <li><a href="user-home.component.html">Request</a></li>
+            <li class="right"><a href="/userProfile">My Account</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class = container>
+    <div >
+        <tr>
+            <th>Transaction Date</th>
+            <th>Transaction Type</th>
+            <th>Amount</th>
+            <th>Description</th>
+            <th>Transaction Number</th>
+        </tr>
+        <tr *ngFor="let transaction of transactions">
+            <td>{{transaction.transactionDate}}</td>
+            <td>{{transaction.transactionType}}</td>
+            <td>{{transaction.amount}}</td>
+            <td>{{transaction.description}}</td>
+            <td>{{transaction.transactionNumber}}</td>
+        </tr>
+        
+        <br><br>
+    </div>
+</div>
