@@ -1,0 +1,258 @@
+.container
+{
+    color: steelblue;
+    width: 75%;
+    height: 75%;
+    margin: 0 auto; 
+    display:flex;
+    flex-flow:column;
+    /* justify-content: space-between; */
+    row-gap: 5px;
+    padding-top: 50px;
+    align-items: left;
+}
+
+.container select
+{
+    border: 1px solid steelblue;
+    color: steelblue;
+    width: 300px
+}
+
+.container input
+{
+    border: 1px solid steelblue;
+    color: steelblue;
+    width: 300px;
+    height: 25px;
+}
+
+.container button
+{
+    width:120px;
+    height:30px;
+}
+
+.menuContainer
+{
+    width: 75%;
+    height: 75%;
+    margin: 0 auto;
+    padding-bottom: 5px;
+    background-color:aliceblue;
+}
+
+.menuContainer .menu
+{
+    width: 75%;
+    height: 75%;
+    padding-bottom: 50px;
+}
+
+.menuContainer .menu a
+{
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: cornflowerblue;
+}
+
+/* .body
+{
+    display: flex;
+    margin: 10%;
+    padding: 10 px;
+} */
+
+.container div tr td
+{
+    color:steelblue;
+    border: 2px solid aliceblue;
+    border-radius: 3px;
+    width: 700px;
+    text-align: center;
+    
+}
+
+ .container div tr th
+{
+    background-color:steelblue;
+    color: white;
+    border: 2px solid aliceblue;
+    border-radius: 3px;
+    width: 700px;
+    text-align: center;
+}
+
+ .primaryBalanceDetails
+{
+    background-color:whitesmoke;
+    width: 300px;
+    height: 25px;
+    text-align: left;
+    position:absolute;
+    bottom: 3px;
+    left:0;
+    font-size: 14px;
+    padding-left: 10px;
+    padding-top: 4px;
+    border-radius: 2px;
+} 
+
+.savingsBalance
+{
+    color:steelblue;
+    background-color:rgb(212, 242, 218);
+    border-radius: 3px;
+    width: 300px;
+    height: 75px;
+    text-align: left;
+    position:relative;
+    font-size: 20px;
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.savingsBalanceDetails
+{
+    background-color:whitesmoke;
+    width: 300px;
+    height: 25px;
+    text-align: left;
+    position:absolute;
+    bottom: 3px;
+    left:0;
+    font-size: 14px;
+    padding-left: 10px;
+    padding-top: 4px;
+    border-radius: 2px;
+}
+/* 
+.deposit
+{
+    width: 200px;
+    height: 75px;
+    position:relative;
+    text-align: right;
+    color: steelblue;
+    border-radius: 3px;
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.deposit .depositDetails
+{
+    background-color:whitesmoke;
+    width: 200px;
+    height: 25px;
+    text-align: left;
+    position:absolute;
+    bottom: 3px;
+    left:0;
+    font-size: 14px;
+    padding-left: 10px;
+    padding-top: 4px;
+    border-radius: 2px;
+}
+
+.deposit .depositDetails a
+{
+    text-decoration: none;
+    color: steelblue;
+}
+
+.withdrawal
+{
+    width: 200px;
+    height: 75px;
+    position:relative;
+    text-align: right;
+    color: steelblue;
+    border-radius: 3px;
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.withdrawalDetails
+{
+    background-color:whitesmoke;
+    width: 200px;
+    height: 25px;
+    text-align: left;
+    position:absolute;
+    bottom: 3px;
+    left:0;
+    font-size: 14px;
+    padding-left: 10px;
+    padding-top: 4px;
+    border-radius: 2px;
+} */
+
+.primaryBalance .primaryBalanceDetails a
+{
+    text-decoration: none;
+    color: steelblue;
+}
+
+.savingsBalance .savingsBalanceDetails a
+{
+    text-decoration: none;
+    color: steelblue;
+}
+
+.withdrawal .withdrawalDetails a
+{
+    text-decoration: none;
+    color: steelblue;
+}
+
+p
+{
+    font-size: medium;
+    color: slategray;
+}
+
+
+
+h3
+{
+    color:steelblue;
+    text-align: left;
+}
+
+.cc-icon
+{
+    width: 45px;
+    height: 45px;
+    float: left;
+}
+
+.dol-icon
+{
+    width: 45px;
+    height: 45px;
+    float: left;
+}
+
+ul 
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li
+{
+    float: left;
+}
+
+
+
+.right
+{
+    float: right;
+    text-align: right;
+}

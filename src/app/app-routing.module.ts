@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CheckingDetailsComponent } from './checking-details/checking-details.component';
 import { DepositComponent } from './deposit/deposit.component';
 import { LoginComponent } from './login/login.component';
+import { RequestCheckBookComponent } from './request-check-book/request-check-book.component';
 import { SavingsDetailsComponent } from './savings-details/savings-details.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { UserHomeComponent } from './user-home/user-home.component';
@@ -20,7 +21,8 @@ const routes: Routes =
   {path:"withdrawal",component:WithdrawalComponent},
   {path:"checkingDetails",component:CheckingDetailsComponent},
   {path:"savingsDetails", component:SavingsDetailsComponent},
-  {path:"transfer", component:TransferComponent}
+  {path:"transfer", component:TransferComponent},
+  {path:"request", component:RequestCheckBookComponent}
 ];
 
 @NgModule({

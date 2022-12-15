@@ -14,6 +14,7 @@ import { WithdrawalComponent } from './withdrawal/withdrawal.component';
 import { CheckingDetailsComponent } from './checking-details/checking-details.component';
 import { SavingsDetailsComponent } from './savings-details/savings-details.component';
 import { TransferComponent } from './transfer/transfer.component';
+import { RequestCheckBookComponent } from './request-check-book/request-check-book.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TransferComponent } from './transfer/transfer.component';
     WithdrawalComponent,
     CheckingDetailsComponent,
     SavingsDetailsComponent,
-    TransferComponent
+    TransferComponent,
+    RequestCheckBookComponent
   ],
   imports: [
     BrowserModule,
