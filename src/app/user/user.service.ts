@@ -11,14 +11,37 @@ import { SavingsAccount } from '../user-home/savings-account';
 
 export class UserService 
 {
-  checkingAccount:CheckingAccount = new CheckingAccount(0,0);
-  savingsAccount:SavingsAccount = new SavingsAccount(0);
-  // loggedInUser:User = new User("", "", "", "", "");
   response:any;
-
 
   // We have to do DI for HTTP Client.
   constructor(public http:HttpClient) { }
+
+  requestCheckingAccountCheckbook(myCheckingAccount:CheckingAccount)
+  {
+    let api = "http://localhost:8081/requestCheckingCheckbook";
+
+    return this.http.post(api, myCheckingAccount, {responseType:'text'});
+  }
+
+  requestSavingsaccountCheckbook(mySavingsAccount:SavingsAccount)
+  {
+    let api = "http://localhost:8081/requestSavingsCheckbook";
+
+    return this.http.post(api, mySavingsAccount, {responseType:'text'});
+  }
+
+
+  getCheckbookRequestsForSavingsAccount():Observable<any[]>
+  {
+    let api = "http://localhost:8081/getSavingsAccountCheckbookRequests/";
+    return this.http.get<any[]>(api, {responseType:'json'});
+  }
+
+  getCheckbookRequestsForCheckingAccount():Observable<any[]>
+  {
+    let api = "http://localhost:8081/getCheckingAccountCheckbookRequests/";
+    return this.http.get<any[]>(api, {responseType:'json'});
+  }
 
   getTransactionByAccountId(accountId:string):Observable<any[]>
   {
@@ -35,12 +58,6 @@ export class UserService
 
   depositIntoChecking(myCheckingAccount:CheckingAccount, accountId:number):Observable<string>
   {
-    console.log("Checking the id that is coming over");
-    console.log(accountId.toString);
-
-    console.log("Service Checking Account Passed From Deposit Component! ")
-            console.log(myCheckingAccount);
-
     let api:string = "http://localhost:8081/checkingDeposit";
 
     return this.http.post(api, myCheckingAccount, {responseType:'text'});

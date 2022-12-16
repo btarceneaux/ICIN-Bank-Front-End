@@ -15,6 +15,9 @@ import { CheckingDetailsComponent } from './checking-details/checking-details.co
 import { SavingsDetailsComponent } from './savings-details/savings-details.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { RequestCheckBookComponent } from './request-check-book/request-check-book.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { CheckbookRequestsComponent } from './checkbook-requests/checkbook-requests.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { RequestCheckBookComponent } from './request-check-book/request-check-bo
     CheckingDetailsComponent,
     SavingsDetailsComponent,
     TransferComponent,
-    RequestCheckBookComponent
+    RequestCheckBookComponent,
+    AdminComponent,
+    AdminLoginComponent,
+    CheckbookRequestsComponent
   ],
   imports: [
     BrowserModule,

@@ -26,24 +26,32 @@ export class LoginComponent implements OnInit {
 
   }
 
+  //Disable admin account here
   loginUser(data:any)
   {
-    this.service.loginUser(data.emailAddress, data.password).subscribe(result=>
-      {
-
-        if(result > "0" )
+    if(data.emailAddress == "admin@gmail.com")
+    {
+      this.router.navigate(["/loginAdmin"]);
+    }
+    else
+    {
+      this.service.loginUser(data.emailAddress, data.password).subscribe(result=>
         {
-          sessionStorage.setItem("myUserId", result);
-
-          this.msg=="Login successful!";
-          this.router.navigate(["home"]);
-        }
-        else
-        {
-          console.log("Invalid username or password combination. Please try again!")
-        }
-      },
-      error=>console.log(error), 
-      ()=> console.log("Finished"));
+  
+          if(result > "0" )
+          {
+            sessionStorage.setItem("myUserId", result);
+  
+            this.msg=="Login successful!";
+            this.router.navigate(["home"]);
+          }
+          else
+          {
+            console.log("Invalid username or password combination. Please try again!")
+          }
+        },
+        error=>console.log(error), 
+        ()=> console.log("Finished"));
+    }
   }
 }

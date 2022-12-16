@@ -19,9 +19,22 @@
     padding-top: 50px;
 }
 
-.container h3
+.container h2
 {
-    color: red;
+    color:steelblue;
+}
+
+.container input
+{
+    /* color:aliceblue; */
+    border: 1px solid aliceblue;
+}
+
+.container button
+{
+    font-size: 14px;
+    width: 75px;
+    height: 30px ;
 }
 
 ul 

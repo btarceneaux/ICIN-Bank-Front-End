@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminComponent } from './admin/admin.component';
+import { CheckbookRequestsComponent } from './checkbook-requests/checkbook-requests.component';
 import { CheckingDetailsComponent } from './checking-details/checking-details.component';
 import { DepositComponent } from './deposit/deposit.component';
 import { LoginComponent } from './login/login.component';
@@ -22,7 +25,10 @@ const routes: Routes =
   {path:"checkingDetails",component:CheckingDetailsComponent},
   {path:"savingsDetails", component:SavingsDetailsComponent},
   {path:"transfer", component:TransferComponent},
-  {path:"request", component:RequestCheckBookComponent}
+  {path:"request", component:RequestCheckBookComponent},
+  {path:"loginAdmin",component:AdminLoginComponent},
+  {path:"admin",component:AdminComponent},
+  {path:"checkbookRequests",component:CheckbookRequestsComponent}
 ];
 
 @NgModule({

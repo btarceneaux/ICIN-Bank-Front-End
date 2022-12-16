@@ -1,0 +1,28 @@
+<div class="menuContainer">
+    <div class="menu">
+        <ul>
+            <li><a href="/home">ICIN Bank</a></li>
+            <li><a href="/loginAdmin">User Account</a></li>
+            <li><a href="/checkbookRequests">Check Book Requests</a></li>
+        </ul>
+    </div>
+</div>
+<div class ="container">
+    <h2>Checking Account Checkbook Requests</h2>
+    <tr>
+        <th>User Id</th>
+        <th>User Name</th>
+        <th>Account</th>
+        <th>Description</th>
+        <th>Confirmed?</th>
+        <th>Action</th>
+    </tr>
+    <tr *ngFor="let account of checkingAccountArray">
+        <td>{{account.userId}}</td>
+        <td>{{account.userName}}</td>
+        <td>Primary</td>
+        <td>Checkbook request for the primary account</td>
+        <td>{{account.confirmed}}</td>
+        <td><button (click)="confirmRequest(account.id!,'checking')">Confirm</button></td> 
+    </tr>
+</div>
