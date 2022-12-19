@@ -24,7 +24,7 @@ export class UserComponent implements OnInit {
   createAccount(data: any): void
   {
     // Store the incoming data in a user object.
-    let user = new User(data.firstName, data.lastName, data.phoneNumber, data.emailAddress, data.password);
+    let user = new User(data.firstName, data.lastName, data.phoneNumber, data.emailAddress, data.password, data.id);
     
     // Call the rest API to store the user.
     this.service.storeUser(user).subscribe(result=>

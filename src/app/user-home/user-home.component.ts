@@ -21,6 +21,7 @@ export class UserHomeComponent implements OnInit {
     if(obj!=null)
     {
       this.loginId = obj;
+      
     }
     else
     {
@@ -41,16 +42,11 @@ export class UserHomeComponent implements OnInit {
       error=> console.log(error),
       ()=> 
       {
-        this.service.getSavingsAccountInfo(this.loginId).subscribe(result=>
+        console.log("Login id is " + this.loginId)
+        this.service.getSavingsAccountInfo(this.loginId).subscribe
+        (result=>
         {
-          if(result.id! > 0)
-          {
-            this.savingsAccount = result;
-          }
-          else
-          {
-            console.log("No savings account was returned");
-          }
+          this.savingsAccount = result;
         },
         error=> console.log(error),
         ()=> console.log("Data load finished"))

@@ -13,6 +13,7 @@ export class RequestCheckBookComponent implements OnInit {
 
   constructor(private router:Router, private service:UserService) { }
 
+  accountType:string = ""
   msg:string = "";
   checkingMessage:string = "Requesting check book for the primary account";
   savingsMessage:string = "Requesting check book for the savings account";
@@ -38,6 +39,8 @@ export class RequestCheckBookComponent implements OnInit {
         if(result.id! > 0)
         {
           this.checkingAccount = result;
+          console.log("Checking account returned is ")
+          console.log(this.checkingAccount);
         }
         else
         {
@@ -71,6 +74,7 @@ export class RequestCheckBookComponent implements OnInit {
 
     if(message == "checking" || message == "savings")
     {
+      this.accountType = message;
       this.msg = this.checkingMessage;
       button.disabled = false;
     }
@@ -85,7 +89,33 @@ export class RequestCheckBookComponent implements OnInit {
 
   navigateHome()
   {
-    alert("The request for a new checkbook has been sent.");
+    // alert("The request for a new checkbook has been sent.");
+    
+    if(this.accountType == "checking")
+    {
+      this.service.requestCheckingAccountCheckbook(this.checkingAccount).subscribe
+      (result =>
+      {
+        console.log("We'll see if this returned the proper results");
+        console.log(result)
+      },
+      error => console.log(error),
+      ()=> console.log("Finished requesting checking account checkbook"));
+    }
+    else
+    {
+      this.service.requestSavingsaccountCheckbook(this.savingsAccount).subscribe
+      (result =>
+        {
+          console.log(result);
+        },
+        error=> console.log(error),
+        ()=>console.log("Finished requesting savings account checkbook")
+      )
+    }
+    
+    
+
     this.router.navigate(["home"]);
   }
   

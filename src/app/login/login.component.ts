@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   constructor(private router:Router, private service: UserService) { }
   msg:string = "";
   checkingAccountMessage:any;
-  loggedInUser:User = new User("","","","","");
+  loggedInUser:User = new User("","","","","",0);
   loggedInCheckingAccount:CheckingAccount = new CheckingAccount(0, 0);
   loggedInSavingsAccount:SavingsAccount = new SavingsAccount(0);
   loginId:string = "";

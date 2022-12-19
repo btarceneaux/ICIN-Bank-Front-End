@@ -25,4 +25,22 @@
         <td>{{account.confirmed}}</td>
         <td><button (click)="confirmRequest(account.id!,'checking')">Confirm</button></td> 
     </tr>
+    <br><br>
+    <h2>Savings Account Checkbook Requests</h2>
+    <tr>
+        <th>User Id</th>
+        <th>User Name</th>
+        <th>Account</th>
+        <th>Description</th>
+        <th>Confirmed?</th>
+        <th>Action</th>
+    </tr>
+    <tr *ngFor="let account of savingsAccountArray">
+        <td>{{account.userId}}</td>
+        <td>{{account.userName}}</td>
+        <td>Savings</td>
+        <td>Checkbook request for the savings account</td>
+        <td>{{account.confirmed}}</td>
+        <td><button (click)="confirmRequest(account.id!,'savings')">Confirm</button></td> 
+    </tr>
 </div>

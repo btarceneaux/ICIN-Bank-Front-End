@@ -16,6 +16,23 @@ export class UserService
   // We have to do DI for HTTP Client.
   constructor(public http:HttpClient) { }
 
+
+  confirmSavingsCheckbookStatus(mySavingsAccount:SavingsAccount)
+  {
+    mySavingsAccount.confirmed = "Confirmed";
+    let api = "http://localhost:8081/approveSavingsCheckbookRequest";
+
+    return this.http.post(api, mySavingsAccount, {responseType:'text'});
+  }
+
+  confirmCheckingCheckbookStatus(myCheckingAccount:CheckingAccount)
+  {
+    myCheckingAccount.confirmed = "Confirmed";
+    let api = "http://localhost:8081/approveCheckingCheckbookRequest";
+
+    return this.http.post(api, myCheckingAccount, {responseType:'text'});
+  }
+
   requestCheckingAccountCheckbook(myCheckingAccount:CheckingAccount)
   {
     let api = "http://localhost:8081/requestCheckingCheckbook";
@@ -91,7 +108,7 @@ export class UserService
   loginUser(email:string, pass:string):Observable<string>
   {
     //Convert the username and password to a user object before sending it to the api endpoint.
-    let myUser:User = new User("", "", "", email, pass);
+    let myUser:User = new User("", "", "", email, pass, 0);
 
     let api:string = "http://localhost:8081/loginUser";
     
@@ -114,6 +131,13 @@ export class UserService
   {
     let api:string = "http://localhost:8081/getUser/" + id;
     console.log("API endpoint is : " +  api);
+    return this.http.get<User>(api, {responseType:'json'});
+  }
+
+  getUserByAccountId(id:string, accountType:string):Observable<User>
+  {
+    let api:string = "http://localhost:8081/getUserByAccountId/" + id + "/" + accountType;
+    
     return this.http.get<User>(api, {responseType:'json'});
   }
 }

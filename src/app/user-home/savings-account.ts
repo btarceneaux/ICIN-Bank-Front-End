@@ -3,10 +3,10 @@ import { Transaction } from "./transaction";
 export class SavingsAccount
 {
     public balance:number;
-    public confirmed:string = "Pending";
+    public confirmed:string;
+    public userId:number;
+    public userName:string;
     public id?:number;
-    public userId?:number;
-    public userName?:string;
 
     constructor
     (
@@ -14,6 +14,9 @@ export class SavingsAccount
     )
     {
         this.balance = inBalance;
+        this.confirmed = "Pending";
+        this.userId = 0;
+        this.userName = "";
     }
    
     public set setId(newId:number)

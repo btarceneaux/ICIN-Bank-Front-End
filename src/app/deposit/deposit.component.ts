@@ -42,7 +42,7 @@ export class DepositComponent implements OnInit {
     if(obj!=null)
     {
       this.loginId = obj;
-      console.log("Account id is " + obj);
+      console.log("Account id is " + this.loginId);
     }
     else
     {
@@ -60,6 +60,8 @@ export class DepositComponent implements OnInit {
     {
       if(depositInfo.accountSelect == "checking")
       {
+        console.log("Login id is ")
+        console.log(this.loginId)
         this.service.getCheckingAccountInfo(this.loginId).subscribe
         (result=>
           {
@@ -109,15 +111,18 @@ export class DepositComponent implements OnInit {
       }
       else
       {
+        // Debug here
+        console.log("Login id is ")
+        console.log(this.loginId)
         //Savings
         this.service.getSavingsAccountInfo(this.loginId).subscribe
         (result=>
           {
+            console.log("Result is " + result)
             if(result.id! > 0)
             {
+              console.log("ID is fine on checking account")
               this.savingsAccount = result;
-              console.log("Details before deposit");
-              console.log(this.savingsAccount)
             }
             else
             {
@@ -138,6 +143,10 @@ export class DepositComponent implements OnInit {
             (
               result=>
               {
+                console.log("These are the parameters being passed in ")
+                console.log(this.savingsAccount)
+                console.log(this.accountId)
+
                 if(result == "Successful")
                 {
                   console.log("Deposit successful!");
@@ -147,7 +156,11 @@ export class DepositComponent implements OnInit {
                   console.log("Deposit unsuccessful!");
                 }
               },
-              error=>console.error(),
+              error=>
+              {
+                console.log("An error occured")
+                console.error()
+              },
               ()=> 
               {
                 console.log("Deposit complete")

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CheckingAccount } from '../user-home/checking-account';
 import { SavingsAccount } from '../user-home/savings-account';
+import { User } from '../user/user';
 import { UserService } from '../user/user.service';
 
 @Component({
@@ -13,11 +14,13 @@ export class CheckbookRequestsComponent implements OnInit {
 
   constructor(private service: UserService, private router:Router) { }
 
-  loginId:string = "";
+  loginId:number = 0;
   checkingAccount:CheckingAccount = new CheckingAccount(0,0);
   savingsAccount:SavingsAccount = new SavingsAccount(0);
   checkingAccountArray:CheckingAccount[] = [];
   savingsAccountArray:SavingsAccount[] = [];
+  userName:string = "";
+  
 
   ngOnInit(): void 
   {
@@ -25,24 +28,50 @@ export class CheckbookRequestsComponent implements OnInit {
     this.service.getCheckbookRequestsForCheckingAccount().subscribe
     (result =>
       {
-        this.checkingAccountArray = result;
-
-        if(this.checkingAccountArray.length > 0)
+        //Check the size first
+        if(result.length > 0)
         {
-          console.log("The checking array has " + this.checkingAccountArray.length + " checking accounts in it.");
-          
-          //We need to loop through this and put a user account name in the account.
-          for(var item of this.checkingAccountArray)
+          for(var item of result)
           {
-            if(item.confirmed == "")
+            if(item.checkbookRequested == true && item.checkbookRequestApproved == false)
             {
-              item.setConfirmation = "Pending";
-            }
+              this.service.getUserByAccountId(item.id, "checking").subscribe
+              (result => 
+              {
+                console.log("Before assignment to myUser")
+                let myUser = result;
+                this.loginId = result.userId;
+                sessionStorage.setItem("name", result.firstName + " " + result.lastName);
+                sessionStorage.setItem("selectedUserId", this.loginId.toString());
+              },
+              error=>console.log(error),
+              ()=> 
+              {
+                console.log("User information before assignment to account");
+                console.log(sessionStorage.getItem("selectedUserId"));
+
+                let myvar:number = parseInt(sessionStorage.getItem("selectedUserId")!);
+                this.checkingAccount.userId = myvar;
+                this.checkingAccount.userName = sessionStorage.getItem("name")!
+                this.checkingAccount.confirmed = "Pending";
+                this.checkingAccountArray.push(this.checkingAccount);
+              }
+              )
               
-            console.log("Item details after set")
-            console.log(item.confirmed)
+            }
+            else
+            {
+              this.checkingAccount.confirmed = "Confirmed"; 
+            }
+
+            //Get user information from checking account
+            
+            
+            this.checkingAccount = item;
+            
           }
 
+          console.log(this.checkingAccountArray);
         }
       },
       error=> console.log(error),
@@ -51,18 +80,23 @@ export class CheckbookRequestsComponent implements OnInit {
         this.service.getCheckbookRequestsForSavingsAccount().subscribe
         (result =>
           {
-            this.savingsAccountArray = result;
-
-            if(this.savingsAccountArray.length > 0)
+            // this.savingsAccountArray = result;
+            if(result.length > 0)
             {
-              console.log("The savings array has " + this.savingsAccountArray.length + " checking accounts in it.");
-            
-              //We need to loop through this and put a user account name in the account.
-              for(let i=0; i<this.savingsAccountArray.length; i++)
+              for(var item of result)
               {
-                if(this.savingsAccountArray[i].confirmed == "")
+                if(item.checkbookRequested == true && item.checkbookRequestApproved == false)
                 {
-                  this.savingsAccountArray[i].setConfirmation = "Pending";
+                  let myvar:number = parseInt(sessionStorage.getItem("selectedUserId")!);
+                  this.savingsAccount = item;
+                  this.savingsAccount.confirmed = "Pending";
+                  this.savingsAccount.userId = myvar;
+                  this.savingsAccount.userName = sessionStorage.getItem("name")!;
+                  this.savingsAccountArray.push(this.savingsAccount);
+                } 
+                else
+                {
+                  this.savingsAccount.confirmed = "Confirmed";
                 }
               }
             }
@@ -75,10 +109,7 @@ export class CheckbookRequestsComponent implements OnInit {
   }
 
   confirmRequest(accountId:number, accountType:string)
-  {//BEGIN
-    //Get account number
-    alert(accountId);
-    alert("Length of list is " + this.checkingAccountArray.length);
+  {
     if(accountType == "checking")
     {
       //Get the account in the array
@@ -90,11 +121,10 @@ export class CheckbookRequestsComponent implements OnInit {
           console.log("The checking id from the list is");
           console.log(this.checkingAccount.id?.toString());
           this.checkingAccount.setConfirmation = "Confirmed";
-          alert(this.checkingAccount.confirmed);
         }
       }
 
-      this.service.requestCheckingAccountCheckbook(this.checkingAccount).subscribe
+      this.service.confirmCheckingCheckbookStatus(this.checkingAccount).subscribe
       (result =>
         {
           if(result == "Successful")
@@ -110,8 +140,6 @@ export class CheckbookRequestsComponent implements OnInit {
         error => console.log(error),
         ()=> console.log("Request complete")
       )
-
-      
     }
     else
     {
@@ -127,7 +155,7 @@ export class CheckbookRequestsComponent implements OnInit {
         () => console.log("The account details have been found")
       )
 
-      this.service.requestSavingsaccountCheckbook(this.savingsAccount).subscribe
+      this.service.confirmSavingsCheckbookStatus(this.savingsAccount).subscribe
       (result =>
         {
           if(result == "Successful")
@@ -143,8 +171,7 @@ export class CheckbookRequestsComponent implements OnInit {
         error => console.log(error),
         ()=>console.log("Request complete")
       )
-
-
     }
+    this.router.navigate(["/admin"])
   }
 }

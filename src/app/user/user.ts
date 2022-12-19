@@ -7,7 +7,7 @@ export class User
         public phoneNumber:string,
         public emailAddress:string,
         public password:string,
-        public id?:number            //This needs to be optional and set after login
+        public userId:number            //This needs to be optional and set after login
     )
     {
         
@@ -15,7 +15,7 @@ export class User
 
     public set setId(newId:number)
     {
-        this.id = newId;
+        this.userId = newId;
     }
 
     public set setFirstName(newFirstName:string)

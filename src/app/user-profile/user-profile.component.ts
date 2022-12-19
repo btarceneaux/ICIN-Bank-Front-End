@@ -15,7 +15,7 @@ export class UserProfileComponent implements OnInit {
   constructor(public router:Router, private service: UserService) { }
 
   loginId:string = "";
-  loggedInUser:User = new User("","","","","");
+  loggedInUser:User = new User("","","","","",0);
   checkingAccount:CheckingAccount = new CheckingAccount(0, 0);
   savingsAccount:SavingsAccount = new SavingsAccount(0);
 

@@ -2,10 +2,10 @@ export class CheckingAccount
 {
     public balance:number;
     public checkNumber:number;    //This is not needed
-    public confirmed:string = "";
+    public confirmed:string;
+    public userId:number;
+    public userName:string;
     public id?:number;
-    public userId?:number;
-    public userName?:string;
 
     constructor
     (
@@ -15,6 +15,9 @@ export class CheckingAccount
     {
         this.balance = inBalance;
         this.checkNumber = inCheckNumber;
+        this.confirmed = "";
+        this.userId = 0;
+        this.userName = "";
     }
    
     public set setId(newId:number)
