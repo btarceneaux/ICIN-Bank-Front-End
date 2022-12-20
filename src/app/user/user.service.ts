@@ -66,11 +66,10 @@ export class UserService
     return this.http.get<any[]>(api,{responseType:'json'});
   }
 
-  getAllUsers()
+  getAllUsers():Observable<any[]>
   {
-    this.http.get("http://localhost:8081/register").subscribe(data=>console.log, 
-    error=>console.log(error), 
-    ()=>console.log("completed"))
+    let api = "http://localhost:8081/getUsers";
+    return this.http.get<any[]>(api, {responseType:'json'});
   }
 
   depositIntoChecking(myCheckingAccount:CheckingAccount, accountId:number):Observable<string>

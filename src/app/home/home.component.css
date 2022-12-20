@@ -11,6 +11,13 @@ p
     color: slategray;
 }
 
+.container div
+{
+    display:flex;
+    font-size: 20pt;
+    color:teal;
+    text-align: center;
+}
 .button
 {
     background-color:steelblue;
@@ -53,4 +60,21 @@ span
     font-size: 12pt;
     color:red;
     text-align: center;
+}
+
+.container
+{
+    width: 40%;
+    height: 75%;
+    margin: 0 auto;
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    /* row-gap: 20px; */
+    /* padding-top: 10px; */
+}
+
+.container h3
+{
+    font-size: larger;
 }

@@ -42,7 +42,7 @@ export class UserComponent implements OnInit {
     ()=>
     {
       console.log(this.storeMessage);
-      this.router.navigate(["login"]);
+      this.router.navigate([""]);
     }
       );
   }

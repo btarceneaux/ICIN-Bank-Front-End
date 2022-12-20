@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserService } from './user/user.service';
 import { UserComponent } from './user/user.component';
-import { LoginComponent } from './login/login.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { DepositComponent } from './deposit/deposit.component';
@@ -16,14 +15,14 @@ import { SavingsDetailsComponent } from './savings-details/savings-details.compo
 import { TransferComponent } from './transfer/transfer.component';
 import { RequestCheckBookComponent } from './request-check-book/request-check-book.component';
 import { AdminComponent } from './admin/admin.component';
-import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { CheckbookRequestsComponent } from './checkbook-requests/checkbook-requests.component';
+import { AdminUsersComponent } from './admin-users/admin-users.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
-    LoginComponent,
     UserHomeComponent,
     UserProfileComponent,
     DepositComponent,
@@ -33,8 +32,9 @@ import { CheckbookRequestsComponent } from './checkbook-requests/checkbook-reque
     TransferComponent,
     RequestCheckBookComponent,
     AdminComponent,
-    AdminLoginComponent,
-    CheckbookRequestsComponent
+    CheckbookRequestsComponent,
+    AdminUsersComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

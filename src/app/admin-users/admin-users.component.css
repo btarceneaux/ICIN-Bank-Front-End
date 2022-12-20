@@ -19,7 +19,7 @@
     padding-top: 50px;
 }
 
-.container h3
+.container h2
 {
     color:steelblue;
 }
@@ -110,4 +110,23 @@ a
 .fieldLabel
 {
     padding: 3px;
+}
+
+.container tr td
+{
+    color:steelblue;
+    border: 2px solid aliceblue;
+    border-radius: 3px;
+    width: 700px;
+    text-align: center;
+}
+
+.container tr th
+{
+    background-color:steelblue;
+    color: white;
+    border: 2px solid aliceblue;
+    border-radius: 3px;
+    width: 700px;
+    text-align: center;
 }
