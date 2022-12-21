@@ -1,5 +1,9 @@
 export class User
 {
+    public checkingAccountNumber:number = 0;
+    public savingsAccountNumber:number = 0;
+    public activated:boolean = false;
+
     constructor
     (
         public firstName:string,
@@ -7,7 +11,8 @@ export class User
         public phoneNumber:string,
         public emailAddress:string,
         public password:string,
-        public userId:number            //This needs to be optional and set after login
+        public userId:number
+                  //This needs to be optional and set after login
     )
     {
         

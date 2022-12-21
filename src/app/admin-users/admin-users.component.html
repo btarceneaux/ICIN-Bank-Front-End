@@ -10,8 +10,7 @@
 <div class ="container">
     <h2>User Account Page</h2>
     <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
+        <th>Name</th>
         <th>Email</th>
         <th>Phone</th>
         <th>Primary Account</th>
@@ -19,7 +18,13 @@
         <th>Enabled</th>
         <th>Action</th>
     </tr>
-    <tr>
-        
+    <tr *ngFor="let user of myUserArray">
+        <td *ngIf="user.emailAddress != 'admin@gmail.com'">{{user.firstName}} {{user.lastName}}</td>
+        <td *ngIf="user.emailAddress != 'admin@gmail.com'">{{user.emailAddress}}</td>
+        <td *ngIf="user.emailAddress != 'admin@gmail.com'">{{user.phoneNumber}}</td>
+        <td *ngIf="user.emailAddress != 'admin@gmail.com'">{{user.checkingAccountNumber}}</td>
+        <td *ngIf="user.emailAddress != 'admin@gmail.com'">{{user.savingsAccountNumber}}</td>
+        <td *ngIf="user.emailAddress != 'admin@gmail.com'">{{user.activated}}</td>
+        <td *ngIf="user.emailAddress != 'admin@gmail.com'">Disable</td>
     </tr>
 </div>
