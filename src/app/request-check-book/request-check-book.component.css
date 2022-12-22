@@ -128,68 +128,6 @@
     padding-top: 4px;
     border-radius: 2px;
 }
-/* 
-.deposit
-{
-    width: 200px;
-    height: 75px;
-    position:relative;
-    text-align: right;
-    color: steelblue;
-    border-radius: 3px;
-    padding-bottom: 2px;
-    padding-left: 10px;
-    padding-top: 10px;
-}
-
-.deposit .depositDetails
-{
-    background-color:whitesmoke;
-    width: 200px;
-    height: 25px;
-    text-align: left;
-    position:absolute;
-    bottom: 3px;
-    left:0;
-    font-size: 14px;
-    padding-left: 10px;
-    padding-top: 4px;
-    border-radius: 2px;
-}
-
-.deposit .depositDetails a
-{
-    text-decoration: none;
-    color: steelblue;
-}
-
-.withdrawal
-{
-    width: 200px;
-    height: 75px;
-    position:relative;
-    text-align: right;
-    color: steelblue;
-    border-radius: 3px;
-    padding-bottom: 2px;
-    padding-left: 10px;
-    padding-top: 10px;
-}
-
-.withdrawalDetails
-{
-    background-color:whitesmoke;
-    width: 200px;
-    height: 25px;
-    text-align: left;
-    position:absolute;
-    bottom: 3px;
-    left:0;
-    font-size: 14px;
-    padding-left: 10px;
-    padding-top: 4px;
-    border-radius: 2px;
-} */
 
 .primaryBalance .primaryBalanceDetails a
 {
