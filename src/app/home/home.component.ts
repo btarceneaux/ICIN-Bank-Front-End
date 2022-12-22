@@ -15,7 +15,6 @@ export class HomeComponent implements OnInit {
 constructor(private router:Router, private service: UserService) { }
 msg:string = "";
 checkingAccountMessage:any;
-loggedInUser:User = new User("","","","","",0);
 loggedInCheckingAccount:CheckingAccount = new CheckingAccount(0, 0);
 loggedInSavingsAccount:SavingsAccount = new SavingsAccount(0);
 loginId:string = "";
@@ -56,33 +55,59 @@ loginId:string = "";
 
   loginUser(data:any)
   {
-
-    console.log(data);
-
     if(data.emailAddress == "admin@gmail.com")
     {
       alert("No administrative login is allowed here! Please try again.");
     }
     else
     {
-      this.service.loginUser(data.emailAddress, data.password).subscribe(result=>
+      this.service.loginUser(data.emailAddress, data.password).subscribe
+      (result=>
         {
+          console.log("result is ")
           console.log(result);
   
           if(result > "0" )
           {
-            sessionStorage.setItem("myUserId", result);
-  
-            this.msg=="Login successful!";
-            this.router.navigate(["userHome"]);
+            this.service.getFullUserDetails(result).subscribe
+            (userResults =>
+              {
+                let loggedInUser = null
+                loggedInUser = userResults;
+                console.log("User details from login are ")
+                console.log(loggedInUser)
+
+                console.log("Active vs inactive")
+                console.log(loggedInUser.activated)
+                if(loggedInUser.activated)
+                {
+                  sessionStorage.setItem("myUserId", loggedInUser.userId.toString());
+                  this.msg=="Login successful!";
+                  this.router.navigate(["userHome"]);
+                }
+                else
+                {
+                  alert("This user must first be authorized before you can log in and use the application.")
+                  location.reload();
+                }
+              },
+              error=>console.error(),
+              ()=>
+              {
+                console.log("User details finished")
+              }
+            )
           }
           else
           {
-            console.log("Invalid username or password combination. Please try again!")
+            alert("Invalid username or password combination. Please try again!")
           }
         },
         error=>console.log(error), 
-        ()=> console.log("Finished"));
+        ()=> 
+        {
+          console.log("Finished") 
+        });
     }
   }
 

@@ -16,6 +16,12 @@ export class UserService
   // We have to do DI for HTTP Client.
   constructor(public http:HttpClient) { }
 
+  enableOrDisableAccount(user:User)
+  {
+    let api = "http://localhost:8081/activateOrDeactivateUser";
+
+    return this.http.post(api, user, {responseType:'text'});
+  }
 
   confirmSavingsCheckbookStatus(mySavingsAccount:SavingsAccount)
   {

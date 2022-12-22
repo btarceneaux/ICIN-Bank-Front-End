@@ -16,7 +16,7 @@
         <th>Primary Account</th>
         <th>Savings Account</th>
         <th>Enabled</th>
-        <th>Action</th>
+        <th>Enable/Disable</th>
     </tr>
     <tr *ngFor="let user of myUserArray">
         <td *ngIf="user.emailAddress != 'admin@gmail.com'">{{user.firstName}} {{user.lastName}}</td>
@@ -25,6 +25,9 @@
         <td *ngIf="user.emailAddress != 'admin@gmail.com'">{{user.checkingAccountNumber}}</td>
         <td *ngIf="user.emailAddress != 'admin@gmail.com'">{{user.savingsAccountNumber}}</td>
         <td *ngIf="user.emailAddress != 'admin@gmail.com'">{{user.activated}}</td>
-        <td *ngIf="user.emailAddress != 'admin@gmail.com'">Disable</td>
+        <td *ngIf="user.emailAddress != 'admin@gmail.com'">
+          <button (click)="activateOrDeactivateUser(user.userId)">Submit</button>
+        </td>
     </tr>
+    
 </div>

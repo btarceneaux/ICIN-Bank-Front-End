@@ -20,6 +20,7 @@ export class AdminUsersComponent implements OnInit {
   savingsAccount:SavingsAccount = new SavingsAccount(0);
   checkingAccountNumber:number = 0;
   savingsAccountNumber:number = 0;
+  user:User = new User("","","","","",0);
   msg:string = "";
 
   ngOnInit(): void 
@@ -69,6 +70,29 @@ export class AdminUsersComponent implements OnInit {
 
         }
       )
+  }
+
+  activateOrDeactivateUser(userId:number)
+  {
+    this.service.getFullUserDetails(userId.toString()).subscribe
+    (userResult => 
+      {
+        this.user = userResult;
+      },
+      error=> console.log(error),
+      ()=>
+      {
+        this.service.enableOrDisableAccount(this.user).subscribe
+        (enabledResult=> 
+        {
+          console.log(enabledResult);
+        },
+        error => console.log(error),
+        ()=> location.reload()
+        )
+      }
+    )
+    
   }
 
 }
