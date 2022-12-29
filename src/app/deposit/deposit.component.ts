@@ -103,7 +103,7 @@ export class DepositComponent implements OnInit {
               ()=> 
               {
                 console.log("Deposit complete")
-                this.router.navigate(["home"]);
+                this.router.navigate(["userHome"]);
               }
             )
           }
@@ -164,7 +164,7 @@ export class DepositComponent implements OnInit {
               ()=> 
               {
                 console.log("Deposit complete")
-                this.router.navigate(["home"]);
+                this.router.navigate(["userHome"]);
               }
             )
           }
