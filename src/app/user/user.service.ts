@@ -11,7 +11,8 @@ import { SavingsAccount } from '../user-home/savings-account';
 
 export class UserService 
 {
-  baseurl = "http://icin-bank-frontend.s3-website-us-west-2.amazonaws.com"
+  baseurl = "ec2-35-89-254-103.us-west-2.compute.amazonaws.com"
+
   response:any;
 
   // We have to do DI for HTTP Client.
