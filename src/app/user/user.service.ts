@@ -11,6 +11,7 @@ import { SavingsAccount } from '../user-home/savings-account';
 
 export class UserService 
 {
+  baseurl = "http://icin-bank-frontend.s3-website-us-west-2.amazonaws.com"
   response:any;
 
   // We have to do DI for HTTP Client.
@@ -18,7 +19,7 @@ export class UserService
 
   enableOrDisableAccount(user:User)
   {
-    let api = "http://localhost:8081/activateOrDeactivateUser";
+    let api = this.baseurl + "/activateOrDeactivateUser";
 
     return this.http.post(api, user, {responseType:'text'});
   }
@@ -26,7 +27,7 @@ export class UserService
   confirmSavingsCheckbookStatus(mySavingsAccount:SavingsAccount)
   {
     mySavingsAccount.confirmed = "Confirmed";
-    let api = "http://localhost:8081/approveSavingsCheckbookRequest";
+    let api = this.baseurl + "/approveSavingsCheckbookRequest";
 
     return this.http.post(api, mySavingsAccount, {responseType:'text'});
   }
@@ -34,21 +35,21 @@ export class UserService
   confirmCheckingCheckbookStatus(myCheckingAccount:CheckingAccount)
   {
     myCheckingAccount.confirmed = "Confirmed";
-    let api = "http://localhost:8081/approveCheckingCheckbookRequest";
+    let api = this.baseurl + "/approveCheckingCheckbookRequest";
 
     return this.http.post(api, myCheckingAccount, {responseType:'text'});
   }
 
   requestCheckingAccountCheckbook(myCheckingAccount:CheckingAccount)
   {
-    let api = "http://localhost:8081/requestCheckingCheckbook";
+    let api = this.baseurl + "/requestCheckingCheckbook";
 
     return this.http.post(api, myCheckingAccount, {responseType:'text'});
   }
 
   requestSavingsaccountCheckbook(mySavingsAccount:SavingsAccount)
   {
-    let api = "http://localhost:8081/requestSavingsCheckbook";
+    let api = this.baseurl + "/requestSavingsCheckbook";
 
     return this.http.post(api, mySavingsAccount, {responseType:'text'});
   }
@@ -56,58 +57,59 @@ export class UserService
 
   getCheckbookRequestsForSavingsAccount():Observable<any[]>
   {
-    let api = "http://localhost:8081/getSavingsAccountCheckbookRequests/";
+    let api = this.baseurl + "/getSavingsAccountCheckbookRequests/";
     return this.http.get<any[]>(api, {responseType:'json'});
   }
 
   getCheckbookRequestsForCheckingAccount():Observable<any[]>
   {
-    let api = "http://localhost:8081/getCheckingAccountCheckbookRequests/";
+    let api = this.baseurl + "/getCheckingAccountCheckbookRequests/";
     return this.http.get<any[]>(api, {responseType:'json'});
   }
 
   getTransactionByAccountId(accountId:string):Observable<any[]>
   {
-    let api = "http://localhost:8081/getTransactions/" + accountId;
+    let api = this.baseurl + "/getTransactions/" + accountId;
     return this.http.get<any[]>(api,{responseType:'json'});
   }
 
   getAllUsers():Observable<any[]>
   {
-    let api = "http://localhost:8081/getUsers";
+    let api = this.baseurl + "/getUsers";
     return this.http.get<any[]>(api, {responseType:'json'});
   }
 
   depositIntoChecking(myCheckingAccount:CheckingAccount, accountId:number):Observable<string>
   {
-    let api:string = "http://localhost:8081/checkingDeposit";
+    let api:string = this.baseurl + "/checkingDeposit";
 
     return this.http.post(api, myCheckingAccount, {responseType:'text'});
   }
 
   withdrawFromChecking(myCheckingAccount:CheckingAccount, accountId:number):Observable<string>
   {
-    let api:string = "http://localhost:8081/checkingWithdrawal";
+    let api:string = this.baseurl + "/checkingWithdrawal";
 
     return this.http.post(api, myCheckingAccount, {responseType:'text'});
   }
 
   depositIntoSavings(mySavingsAccount: SavingsAccount, accountId: number) 
   {
-    let api:string = "http://localhost:8081/savingsDeposit";
+    let api:string = this.baseurl + "/savingsDeposit";
     return this.http.post(api, mySavingsAccount, {responseType:'text'});
   }
 
   withdrawFromSavings(mySavingsAccount: SavingsAccount, accountId: number) 
   {
-    let api:string = "http://localhost:8081/savingsWithdrawal";
+    let api:string = this.baseurl + "/savingsWithdrawal";
     return this.http.post(api, mySavingsAccount, {responseType:'text'});
   }
   
   storeUser(user:User):Observable<string>
   {
     console.log("Service method user object equals --" + user);
-    return this.http.post("http://localhost:8081/storeUser", user, {responseType:'text'});
+    let api:string = this.baseurl + "/storeUser";
+    return this.http.post(api, user, {responseType:'text'});
   }
 
   loginUser(email:string, pass:string):Observable<string>
@@ -115,33 +117,33 @@ export class UserService
     //Convert the username and password to a user object before sending it to the api endpoint.
     let myUser:User = new User("", "", "", email, pass, 0);
 
-    let api:string = "http://localhost:8081/loginUser";
+    let api:string = this.baseurl + "/loginUser";
     
     return this.http.post(api, myUser, {responseType:'text'});
   }
 
   getCheckingAccountInfo(id:string):Observable<CheckingAccount>
   {
-    let api:string = "http://localhost:8081/getCheckingAccountInfo/" + id;
+    let api:string = this.baseurl + "/getCheckingAccountInfo/" + id;
     return this.http.get<CheckingAccount>(api,{responseType:'json'});
   }
   
   getSavingsAccountInfo(id:string):Observable<SavingsAccount>
   {
-    let api:string = "http://localhost:8081/getSavingsAccountInfo/" + id;
+    let api:string = this.baseurl + "/getSavingsAccountInfo/" + id;
     return this.http.get<SavingsAccount>(api,{responseType:'json'});
   }
 
   getFullUserDetails(id:string):Observable<User>
   {
-    let api:string = "http://localhost:8081/getUser/" + id;
+    let api:string = this.baseurl + "/getUser/" + id;
     console.log("API endpoint is : " +  api);
     return this.http.get<User>(api, {responseType:'json'});
   }
 
   getUserByAccountId(id:string, accountType:string):Observable<User>
   {
-    let api:string = "http://localhost:8081/getUserByAccountId/" + id + "/" + accountType;
+    let api:string = this.baseurl + "/getUserByAccountId/" + id + "/" + accountType;
     
     return this.http.get<User>(api, {responseType:'json'});
   }
