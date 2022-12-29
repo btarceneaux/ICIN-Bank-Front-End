@@ -11,7 +11,7 @@ import { SavingsAccount } from '../user-home/savings-account';
 
 export class UserService 
 {
-  baseurl = "ec2-35-89-254-103.us-west-2.compute.amazonaws.com:8081"
+  baseurl = "http://localhost:8081"
 
   response:any;
 
