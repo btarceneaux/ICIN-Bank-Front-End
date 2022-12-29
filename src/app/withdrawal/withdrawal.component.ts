@@ -92,7 +92,7 @@ export class WithdrawalComponent implements OnInit {
               ()=> 
               {
                 console.log("Withdrawal complete")
-                this.router.navigate(["home"]);
+                this.router.navigate(["userHome"]);
               }
             )
           }
@@ -142,7 +142,7 @@ export class WithdrawalComponent implements OnInit {
               ()=> 
               {
                 console.log("Deposit complete")
-                this.router.navigate(["home"]);
+                this.router.navigate(["userHome"]);
               }
             )
           }

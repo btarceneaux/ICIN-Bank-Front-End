@@ -127,7 +127,7 @@ export class TransferComponent implements OnInit {
                   ()=> 
                   {
                     console.log("Deposit complete")
-                    this.router.navigate(["home"]);
+                    this.router.navigate(["userHome"]);
                   }
                 )
               }
@@ -184,7 +184,7 @@ export class TransferComponent implements OnInit {
                   ()=> 
                   {
                     console.log("Deposit Into Checking Account Complete")
-                    this.router.navigate(["home"]);
+                    this.router.navigate(["userHome"]);
                   }
                 )
               }
@@ -219,7 +219,7 @@ export class TransferComponent implements OnInit {
                 }
               },
               error=>console.error(),
-              ()=> this.router.navigate(["home"])            
+              ()=> this.router.navigate(["userHome"])            
             )
           }
         }
@@ -247,7 +247,7 @@ export class TransferComponent implements OnInit {
                 }
               },
               error=>console.error(),
-              ()=> this.router.navigate(["home"])            
+              ()=> this.router.navigate(["userHome"])            
             )
           }
         }

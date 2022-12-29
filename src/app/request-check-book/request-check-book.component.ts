@@ -75,7 +75,15 @@ export class RequestCheckBookComponent implements OnInit {
     if(message == "checking" || message == "savings")
     {
       this.accountType = message;
-      this.msg = this.checkingMessage;
+      if(message == "checking")
+      {
+        this.msg = this.checkingMessage;
+      }
+      else
+      {
+        this.msg = this.savingsMessage;
+      }
+      
       button.disabled = false;
     }
       
@@ -116,7 +124,7 @@ export class RequestCheckBookComponent implements OnInit {
     
     
 
-    this.router.navigate(["home"]);
+    this.router.navigate(["userHome"]);
   }
   
 }
